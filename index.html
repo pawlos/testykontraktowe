@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Testy Kontraktowe</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      line-height: 1.6;
+      margin: 0;
+      padding: 0;
+      background: #f4f4f4;
+      color: #333;
+    }
+    header {
+      background: #24292e;
+      color: white;
+      padding: 1rem;
+      text-align: center;
+    }
+    main {
+      max-width: 800px;
+      margin: 2rem auto;
+      background: white;
+      padding: 2rem;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+    h1, h2 {
+      color: #24292e;
+    }
+    a {
+      color: #0366d6;
+    }
+    footer {
+      text-align: center;
+      padding: 1rem;
+      font-size: 0.9rem;
+      color: #666;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Testy Kontraktowe i Mikroserwisy</h1>
+  </header>
+  <main>
+    <section>
+      <h2>Co to są testy kontraktowe?</h2>
+      <p>Testy kontraktowe to forma automatycznego testowania integracji między usługami, szczególnie przydatna w środowiskach opartych o architekturę mikroserwisów. Zamiast pisać klasyczne testy integracyjne, które uruchamiają wszystkie zależności, testy kontraktowe opierają się na założeniu, że każda strona integracji (producent i konsument) przestrzega wspólnego kontraktu — opisu API i jego zachowania.</p>
+      <p>Dzięki temu możliwe jest testowanie w izolacji: producent sprawdza, czy jego implementacja jest zgodna z kontraktami oczekiwanymi przez konsumentów, a konsumenci mogą weryfikować swoje integracje na podstawie mocków wygenerowanych z kontraktu.</p>
+    </section>
+
+    <section>
+      <h2>Dlaczego warto ich używać?</h2>
+      <ul>
+        <li><strong>Niezależność zespołów:</strong> zespoły mogą pracować niezależnie nad różnymi usługami, mając wspólny punkt odniesienia w postaci kontraktu.</li>
+        <li><strong>Wczesne wykrywanie błędów integracyjnych:</strong> błędy niezgodności formatu danych czy pól JSON wychodzą na jaw jeszcze przed wdrożeniem.</li>
+        <li><strong>Szybsze testy:</strong> brak potrzeby uruchamiania pełnego środowiska z zależnościami.</li>
+        <li><strong>Lepsza dokumentacja:</strong> kontrakt jest jednocześnie dokumentacją API i formą testu.</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Gdzie testy kontraktowe mają sens?</h2>
+      <p>Najwięcej korzyści przynoszą w projektach mikroserwisowych, gdzie usługi komunikują się po HTTP (REST/JSON), gRPC lub za pomocą komunikatów (np. Kafka, RabbitMQ). W takich środowiskach tradycyjne testy integracyjne szybko stają się niepraktyczne lub zbyt kosztowne do utrzymania.</p>
+      <p>Testy kontraktowe sprawdzają się również w firmach, gdzie wiele zespołów rozwija niezależne komponenty systemu — każdy zespół może tworzyć i publikować swoje kontrakty, zapewniając, że pozostałe systemy pozostaną kompatybilne.</p>
+    </section>
+
+    <section>
+      <h2>Popularne narzędzia</h2>
+      <ul>
+        <li><a href="https://docs.pact.io/" target="_blank">Pact</a> – wspiera wiele języków (Java, JS, Python, Go), idealny do testów konsumenckich i producenta.</li>
+        <li><a href="https://spring.io/projects/spring-cloud-contract" target="_blank">Spring Cloud Contract</a> – rozwiązanie dla projektów opartych o Spring Boot, wspierające generowanie testów i stubów z kontraktów.</li>
+        <li><a href="https://spec.openapis.org/oas/latest.html" target="_blank">OpenAPI (Swagger)</a> – może służyć jako podstawa kontraktów w niektórych scenariuszach, choć nie jest typowym frameworkiem testowym.</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Jak zacząć?</h2>
+      <p>Wdrożenie testów kontraktowych wymaga ustalenia prostego procesu między zespołami:</p>
+      <ol>
+        <li>Ustal format kontraktu (np. Pact, YAML, OpenAPI).</li>
+        <li>Dodaj testy konsumenckie generujące kontrakt.</li>
+        <li>Zaimplementuj po stronie producenta walidację kontraktu.</li>
+        <li>Wbuduj walidację kontraktu w pipeline CI/CD (np. weryfikacja w GitHub Actions, GitLab CI).</li>
+      </ol>
+    </section>
+
+    <section>
+      <h2>Kontakt i autor</h2>
+      <p>Strona prowadzona przez programistę z wieloletnim doświadczeniem w projektach komercyjnych i edukacyjnych, który wierzy, że dobre testowanie integracji jest możliwe – ale wymaga odpowiednich narzędzi.</p>
+      <p>Jeśli chcesz się podzielić swoimi doświadczeniami, przemyśleniami lub linkami do przykładów – zapraszam do kontaktu przez GitHub lub LinkedIn.</p>
+    </section>
+  </main>
+  <footer>
+    <p>&copy; 2025 testykontraktowe.pl</p>
+  </footer>
+</body>
+</html>
